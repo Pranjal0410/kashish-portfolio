@@ -91,7 +91,7 @@ export default function Hero() {
 
                     <div ref={descRef} className="max-w-xl mb-12">
                         <div className="overflow-hidden">
-                            <div className="hero-desc-line mb-3 font-sans font-medium text-text-primary text-[19px] sm:text-[22px] md:text-[26px] leading-[1.3]">
+                            <div className="hero-desc-line mb-3 font-serif font-semibold text-text-primary text-[22px] sm:text-[26px] md:text-[32px] leading-[1.25]">
                                 Turning customer insight into<br className="hidden sm:block" /> business growth.
                             </div>
                         </div>

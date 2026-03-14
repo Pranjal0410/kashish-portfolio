@@ -9,6 +9,8 @@ import CustomCursor from './components/CustomCursor';
 import Hero from './components/Hero';
 import About from './components/About';
 import Services from './components/Services';
+import FeaturedProject from './components/FeaturedProject';
+import Credentials from './components/Credentials';
 import Blog from './components/Blog';
 import Skills from './components/Skills';
 import Philosophy from './components/Philosophy';
@@ -101,6 +103,8 @@ function App() {
         <Hero />
         <About />
         <Services />
+        <FeaturedProject />
+        <Credentials />
         <Blog />
         <Skills />
       </main>
