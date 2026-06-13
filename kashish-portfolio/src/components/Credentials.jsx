@@ -22,11 +22,11 @@ const FeaturedCertification = () => (
 
         {/* Top row */}
         <div className="relative z-10">
-            <div className="flex items-start justify-between mb-8">
+            <div className="flex items-start justify-between mb-6">
                 <div className="flex items-center gap-3">
                     <div className="verification-dot w-2.5 h-2.5 rounded-full bg-[#81B64C] shadow-[0_0_8px_rgba(129,182,76,0.4)]" />
                     <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-white/50 font-mono">
-                        Micro-Certification &bull; Verified
+                        Certified System Administrator &bull; CSA
                     </span>
                 </div>
                 <div className="hidden sm:flex items-center gap-1">
@@ -36,45 +36,65 @@ const FeaturedCertification = () => (
             </div>
 
             <h3 className="text-[22px] sm:text-2xl md:text-3xl font-serif text-white leading-snug mb-3">
-                Welcome to ServiceNow
+                ServiceNow Certified<br />System Administrator
             </h3>
             <p className="text-[13px] sm:text-sm text-white/40 leading-relaxed max-w-md">
-                Successfully completed certification requirements validating
-                foundational knowledge of the ServiceNow platform and ecosystem.
+                Successfully completed all requirements for the ServiceNow CSA certification,
+                validating expertise in platform administration and configuration.
             </p>
         </div>
 
+        {/* Certificate preview thumbnail */}
+        <div className="relative z-10 mt-5 mb-1 rounded-xl overflow-hidden border border-white/[0.08] shadow-lg">
+            <img
+                src="/csa-certificate.png"
+                alt="ServiceNow CSA Certificate – Kashish Oberoi"
+                className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
+            />
+        </div>
+
         {/* Bottom row */}
-        <div className="relative z-10 flex items-end justify-between mt-8 pt-6 border-t border-white/[0.08]">
+        <div className="relative z-10 flex items-end justify-between mt-5 pt-5 border-t border-white/[0.08]">
             <div>
                 <div className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-1 font-mono">
                     Issued
                 </div>
-                <div className="text-sm text-white/70">February 24, 2026</div>
+                <div className="text-sm text-white/70">May 17, 2026</div>
             </div>
 
-            <span className="flex items-center gap-2 text-[11px] tracking-[0.1em] uppercase text-[#81B64C]/70 font-mono">
-                Verified
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                    <path d="M9 12l2 2 4-4"/>
-                    <circle cx="12" cy="12" r="10"/>
-                </svg>
-            </span>
-        </div>
-
-        {/* Certification image watermark */}
-        <div className="absolute -right-4 -bottom-4 w-[180px] h-[180px] opacity-[0.08] pointer-events-none">
-            <img src="/certification.png" alt="" className="w-full h-full object-contain" />
+            <div className="flex items-center gap-3">
+                <a
+                    href="/scorereport.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-1.5 text-[11px] tracking-[0.08em] uppercase text-[#81B64C]/80 font-mono
+                               hover:text-[#81B64C] transition-colors duration-200"
+                >
+                    Score Report
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                        <polyline points="15 3 21 3 21 9"/>
+                        <line x1="10" y1="14" x2="21" y2="3"/>
+                    </svg>
+                </a>
+                <span className="flex items-center gap-1.5 text-[11px] tracking-[0.1em] uppercase text-[#81B64C]/70 font-mono">
+                    Verified
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                        <path d="M9 12l2 2 4-4"/>
+                        <circle cx="12" cy="12" r="10"/>
+                    </svg>
+                </span>
+            </div>
         </div>
     </div>
 );
 
-const BadgeCard = ({ title, date, image }) => (
+const BadgeCard = ({ title, date, image, pdfLink }) => (
     <div className="group relative rounded-[20px] p-6 sm:p-7 flex-1
                     bg-white/35 backdrop-blur-sm border border-[rgba(180,160,140,0.1)]
                     hover:bg-white/70 hover:-translate-y-1
                     hover:shadow-[0_25px_60px_rgba(120,100,80,0.12)]
-                    transition-all duration-500 cursor-default">
+                    transition-all duration-500">
 
         {/* Top: Badge type label + Date */}
         <div className="flex items-center justify-between mb-5">
@@ -90,7 +110,7 @@ const BadgeCard = ({ title, date, image }) => (
         </div>
 
         {/* Icon + Title */}
-        <div className="flex items-start gap-4">
+        <div className="flex items-start gap-4 mb-4">
             <div className="flex-shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl
                             overflow-hidden
                             group-hover:scale-110 transition-transform duration-500">
@@ -104,6 +124,23 @@ const BadgeCard = ({ title, date, image }) => (
                 <span className="text-xs text-[#9B8E82]">ServiceNow</span>
             </div>
         </div>
+
+        {pdfLink && (
+            <a
+                href={pdfLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-[10px] tracking-[0.12em] uppercase
+                           text-[#81B64C]/70 font-mono hover:text-[#81B64C] transition-colors duration-200"
+            >
+                View Badge
+                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                    <polyline points="15 3 21 3 21 9"/>
+                    <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+            </a>
+        )}
     </div>
 );
 
@@ -184,6 +221,7 @@ export default function Credentials() {
                             title="ServiceNow Administration Fundamentals"
                             date="Mar 01, 2026"
                             image="/badge1.png"
+                            pdfLink="/badge_merged.pdf"
                         />
                     </motion.div>
                     <motion.div
@@ -197,6 +235,7 @@ export default function Credentials() {
                             title="Welcome to ServiceNow"
                             date="Feb 24, 2026"
                             image="/badge2.png"
+                            pdfLink="/badge_merged.pdf"
                         />
                     </motion.div>
                 </div>
