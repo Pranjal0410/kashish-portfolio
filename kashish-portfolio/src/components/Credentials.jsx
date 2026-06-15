@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const FeaturedCertification = () => (
+const FeaturedCertification = ({ code, title, description, image, imageAlt, issued, scoreReportLink, badgeLink }) => (
     <div className="group relative rounded-[20px] overflow-hidden
                     bg-gradient-to-br from-[#1B2A3D] via-[#1F3044] to-[#162435]
                     p-7 sm:p-8 md:p-10 h-full min-h-[340px] flex flex-col justify-between
@@ -26,7 +26,7 @@ const FeaturedCertification = () => (
                 <div className="flex items-center gap-3">
                     <div className="verification-dot w-2.5 h-2.5 rounded-full bg-[#81B64C] shadow-[0_0_8px_rgba(129,182,76,0.4)]" />
                     <span className="text-[10px] sm:text-[11px] tracking-[0.2em] uppercase text-white/50 font-mono">
-                        Certified System Administrator &bull; CSA
+                        {code}
                     </span>
                 </div>
                 <div className="hidden sm:flex items-center gap-1">
@@ -36,19 +36,18 @@ const FeaturedCertification = () => (
             </div>
 
             <h3 className="text-[22px] sm:text-2xl md:text-3xl font-serif text-white leading-snug mb-3">
-                ServiceNow Certified<br />System Administrator
+                {title}
             </h3>
             <p className="text-[13px] sm:text-sm text-white/40 leading-relaxed max-w-md">
-                Successfully completed all requirements for the ServiceNow CSA certification,
-                validating expertise in platform administration and configuration.
+                {description}
             </p>
         </div>
 
         {/* Certificate preview thumbnail */}
         <div className="relative z-10 mt-5 mb-1 rounded-xl overflow-hidden border border-white/[0.08] shadow-lg">
             <img
-                src="/csa-certificate.png"
-                alt="ServiceNow CSA Certificate – Kashish Oberoi"
+                src={image}
+                alt={imageAlt}
                 className="w-full h-auto object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-500"
             />
         </div>
@@ -59,24 +58,42 @@ const FeaturedCertification = () => (
                 <div className="text-[10px] tracking-[0.15em] uppercase text-white/30 mb-1 font-mono">
                     Issued
                 </div>
-                <div className="text-sm text-white/70">May 17, 2026</div>
+                <div className="text-sm text-white/70">{issued}</div>
             </div>
 
-            <div className="flex items-center gap-3">
-                <a
-                    href="/scorereport.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1.5 text-[11px] tracking-[0.08em] uppercase text-[#81B64C]/80 font-mono
-                               hover:text-[#81B64C] transition-colors duration-200"
-                >
-                    Score Report
-                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                        <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
-                        <polyline points="15 3 21 3 21 9"/>
-                        <line x1="10" y1="14" x2="21" y2="3"/>
-                    </svg>
-                </a>
+            <div className="flex items-center gap-3 flex-wrap">
+                {badgeLink && (
+                    <a
+                        href={badgeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[11px] tracking-[0.08em] uppercase text-[#81B64C]/80 font-mono
+                                   hover:text-[#81B64C] transition-colors duration-200"
+                    >
+                        Badge & Score
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                )}
+                {!badgeLink && scoreReportLink && (
+                    <a
+                        href={scoreReportLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-1.5 text-[11px] tracking-[0.08em] uppercase text-[#81B64C]/80 font-mono
+                                   hover:text-[#81B64C] transition-colors duration-200"
+                    >
+                        Score Report
+                        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                            <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                            <polyline points="15 3 21 3 21 9"/>
+                            <line x1="10" y1="14" x2="21" y2="3"/>
+                        </svg>
+                    </a>
+                )}
                 <span className="flex items-center gap-1.5 text-[11px] tracking-[0.1em] uppercase text-[#81B64C]/70 font-mono">
                     Verified
                     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -194,52 +211,70 @@ export default function Credentials() {
                 </div>
             </div>
 
-            {/* Two-column layout */}
-            <div className="grid grid-cols-1 lg:grid-cols-5 gap-4 sm:gap-5 max-w-5xl">
-
-                {/* LEFT: Featured Certification */}
+            {/* Featured Certs: CSA + CAD side by side */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5 max-w-5xl">
                 <motion.div
-                    className="lg:col-span-3"
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true, margin: "-50px" }}
                     transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
                 >
-                    <FeaturedCertification />
+                    <FeaturedCertification
+                        code="Certified System Administrator • CSA"
+                        title={<>ServiceNow Certified<br />System Administrator</>}
+                        description="Successfully completed all requirements for the ServiceNow CSA certification, validating expertise in platform administration and configuration."
+                        image="/csa-certificate.png"
+                        imageAlt="ServiceNow CSA Certificate – Kashish Oberoi"
+                        issued="May 17, 2026"
+                        scoreReportLink="/scorereport.pdf"
+                    />
                 </motion.div>
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: 0.1, duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                    <FeaturedCertification
+                        code="Certified Application Developer • CAD"
+                        title={<>ServiceNow Certified<br />Application Developer</>}
+                        description="Successfully completed all requirements for the ServiceNow CAD certification, demonstrating proficiency in building and deploying custom applications on the Now Platform."
+                        image="/CAD.png"
+                        imageAlt="ServiceNow CAD Certificate – Kashish Oberoi"
+                        issued="Jun 13, 2026"
+                        badgeLink="/badge_merged.pdf"
+                    />
+                </motion.div>
+            </div>
 
-                {/* RIGHT: Badges stack */}
-                <div className="lg:col-span-2 flex flex-col gap-4 sm:gap-5">
-                    <motion.div
-                        className="flex-1"
-                        initial={{ y: 50, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ delay: 0.1, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                    >
-                        <BadgeCard
-                            title="ServiceNow Administration Fundamentals"
-                            date="Mar 01, 2026"
-                            image="/badge1.png"
-                            pdfLink="/badge_merged.pdf"
-                        />
-                    </motion.div>
-                    <motion.div
-                        className="flex-1"
-                        initial={{ y: 50, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
-                    >
-                        <BadgeCard
-                            title="Welcome to ServiceNow"
-                            date="Feb 24, 2026"
-                            image="/badge2.png"
-                            pdfLink="/badge_merged.pdf"
-                        />
-                    </motion.div>
-                </div>
-
+            {/* Badges: horizontal row below */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 max-w-5xl mt-4 sm:mt-5">
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: 0.1, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                    <BadgeCard
+                        title="ServiceNow Administration Fundamentals"
+                        date="Mar 01, 2026"
+                        image="/badge1.png"
+                        pdfLink="/badge_merged.pdf"
+                    />
+                </motion.div>
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-50px" }}
+                    transition={{ delay: 0.2, duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                    <BadgeCard
+                        title="Welcome to ServiceNow"
+                        date="Feb 24, 2026"
+                        image="/badge2.png"
+                        pdfLink="/badge_merged.pdf"
+                    />
+                </motion.div>
             </div>
         </section>
     );
