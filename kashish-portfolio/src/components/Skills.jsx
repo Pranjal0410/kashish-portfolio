@@ -43,7 +43,7 @@ export default function Skills() {
                 <div className="h-px bg-accent-bronze/40 w-10" />
             </div>
             <h2 className="skills-label font-serif text-[36px] sm:text-[42px] md:text-[50px] lg:text-[58px] tracking-[-0.02em] text-text-primary leading-[1.05] mb-16 sm:mb-20">
-                Expertise
+                Experience
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-14 lg:gap-16 max-w-5xl">

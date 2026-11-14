@@ -6,7 +6,7 @@ const LINKS = [
     { name: 'About', href: '#about' },
     { name: 'Work', href: '#services' },
     { name: 'Insights', href: '#case-studies' },
-    { name: 'Expertise', href: '#command-center' },
+    { name: 'Experience', href: '#command-center' },
 ];
 
 export default function Navigation() {

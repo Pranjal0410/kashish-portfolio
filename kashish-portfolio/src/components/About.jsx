@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-    { value: 0, suffix: "", label: "Areas of Experience", display: "HR" },
+    { value: 0, suffix: "", label: "Areas of Experience", display: "HR & Management" },
     { value: 0, suffix: "", label: "Salesforce Certified", display: "CRM" }
 ];
 

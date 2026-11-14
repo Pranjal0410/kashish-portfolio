@@ -130,7 +130,7 @@ export default function Hero() {
                                 alt="Kashish Oberoi"
                                 className="w-full h-full object-cover"
                                 style={{
-                                    objectPosition: 'center 30%',
+                                    objectPosition: 'center 20%',
                                     filter: 'contrast(1.08) brightness(0.96) saturate(0.85)',
                                 }}
                                 loading="eager"
