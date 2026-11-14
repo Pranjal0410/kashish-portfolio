@@ -6,7 +6,7 @@ import { motion, useInView } from 'framer-motion';
 gsap.registerPlugin(ScrollTrigger);
 
 const stats = [
-    { value: 20, suffix: "+", label: "Business Systems Analyzed" },
+    { value: 0, suffix: "", label: "Areas of Experience", display: "HR" },
     { value: 0, suffix: "", label: "Salesforce Certified", display: "CRM" }
 ];
 
@@ -84,16 +84,18 @@ export default function About() {
 
                     <div className="font-sans text-[16px] sm:text-[17px] md:text-[18px] leading-[1.85] text-text-secondary space-y-5 max-w-lg">
                         <p className="about-reveal">
-                            I'm deeply interested in how businesses think, operate, and grow.
+                            I'm interested in understanding how businesses operate and how people
+                            contribute to their success. I have experience across Human Resources,
+                            recruitment, team coordination, business strategy and operations.
                         </p>
                         <p className="about-reveal">
-                            My focus lies at the intersection of CRM systems, marketing strategy,
-                            and business analysis — understanding how organizations use data,
-                            technology, and communication to create meaningful customer relationships.
+                            I enjoy conducting interviews, managing responsibilities, understanding
+                            products and business functions, and finding practical ways to improve
+                            everyday work.
                         </p>
                         <p className="about-reveal">
-                            I enjoy studying real business problems, exploring customer behavior,
-                            and translating insights into clear strategic ideas.
+                            I believe good management comes from understanding people, making
+                            informed decisions and keeping things organized and running smoothly.
                         </p>
                     </div>
 
@@ -103,8 +105,8 @@ export default function About() {
                         <span className="absolute -left-2 -top-4 text-[60px] font-serif text-[#2C2522]/[0.06] leading-none select-none pointer-events-none">&ldquo;</span>
                         <div className="pl-7 sm:pl-9">
                             <p className="font-serif italic text-[20px] sm:text-[23px] md:text-[26px] leading-[1.45] text-text-primary">
-                                For me, business is not just about tools or campaigns.
-                                It's about understanding people, systems, and decisions.
+                                Good management comes from understanding people,
+                                making informed decisions and keeping things running smoothly.
                             </p>
                         </div>
                     </div>

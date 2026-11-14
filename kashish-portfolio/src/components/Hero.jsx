@@ -86,18 +86,18 @@ export default function Hero() {
 
                     <div ref={tagRef} className="font-mono text-accent-bronze font-medium text-[10px] sm:text-[11px] tracking-[0.2em] uppercase mb-8 flex items-center gap-3">
                         <div className="w-8 h-px bg-accent-bronze/50" />
-                        CRM &bull; MARKETING &bull; STRATEGY
+                        HUMAN RESOURCES &bull; BUSINESS MANAGEMENT &bull; COMMUNICATION &bull; OPERATIONS
                     </div>
 
                     <div ref={descRef} className="max-w-xl mb-12">
                         <div className="overflow-hidden">
                             <div className="hero-desc-line mb-3 font-serif font-semibold text-text-primary text-[22px] sm:text-[26px] md:text-[32px] leading-[1.25]">
-                                Turning customer insight into<br className="hidden sm:block" /> business growth.
+                                Understanding people, managing work<br className="hidden sm:block" /> and making businesses work better.
                             </div>
                         </div>
                         <div className="overflow-hidden">
                             <div className="hero-desc-line text-text-secondary text-[15px] sm:text-[16px] md:text-[17px] leading-[1.75] font-sans font-normal max-w-md">
-                                I explore how data, systems, and strategy shape modern organizations — building smarter customer experiences.
+                                I have experience in Human Resources, recruitment, team coordination, business strategy and operations. I value clear communication, practical thinking and organized work, and enjoy understanding how different business functions contribute to company success.
                             </div>
                         </div>
                     </div>
@@ -130,7 +130,7 @@ export default function Hero() {
                                 alt="Kashish Oberoi"
                                 className="w-full h-full object-cover"
                                 style={{
-                                    objectPosition: 'center bottom',
+                                    objectPosition: 'center 30%',
                                     filter: 'contrast(1.08) brightness(0.96) saturate(0.85)',
                                 }}
                                 loading="eager"

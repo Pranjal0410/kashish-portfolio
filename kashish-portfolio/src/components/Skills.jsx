@@ -6,8 +6,8 @@ import { motion } from 'framer-motion';
 gsap.registerPlugin(ScrollTrigger);
 
 const thinkingAreas = [
-    "CRM Strategy", "Digital Marketing", "Business Systems",
-    "Customer Experience", "Communication & Leadership", "Process Thinking"
+    "Human Resources", "Recruitment", "Communication",
+    "Business Management", "Operations", "Business Strategy"
 ];
 
 const softSkills = [
